@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR Menü Restoran</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>QR Menülü Restoran</header>
+
+      <section class="qr-section">
+        <p>QR kodu okut, menüyü kap!</p>
+        <canvas id="qr-canvas"></canvas>
+        <p><small>Not: QR kodu okuttuğunda menü açılır.</small></p>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="menu-item">
+          <h3>Izgara Tavuk</h3>
+          <p>Yanında patates kızartması ve salata ile.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Et Döner</h3>
+          <p>Özel soslarla hazırlanmış, lavaş ekmeğiyle.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Vejetaryen Pizza</h3>
+          <p>Bol malzemeli, hafif ve lezzetli.</p>
+        </div>
+      </section>
+    </div>
+    <footer>&copy; 2025 MFevziDemir | Tüm hakları saklıdır.</footer>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script>
+      const qrCanvas = document.getElementById("qr-canvas");
+      const menuSection = document.getElementById("menu");
+
+      // Menü URL'si veya bilgi, burada menü sayfası ya da menü içeriği olabilir
+      const menuURL = window.location.href + "#menu";
+
+      // QR kodu üret
+      QRCode.toCanvas(qrCanvas, menuURL, { width: 200 }, function (error) {
+        if (error) console.error(error);
+        else console.log("QR kod üretildi.");
+      });
+
+      // Basit QR okuma simülasyonu: Tıklayınca menüyü gösteriyoruz
+      // Gerçek uygulamada QR okutma için cihazın kamerası gerekir, o backend+API işi.
+      qrCanvas.addEventListener("click", () => {
+        menuSection.style.display = "block";
+        window.location.hash = "menu";
+      });
+    </script>
+  </body>
+</html>

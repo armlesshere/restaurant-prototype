@@ -1,0 +1,86 @@
+header {
+    background: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #e63946;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: #121212;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+.qr-section {
+    margin: 30px auto;
+    text-align: center;
+}
+
+#qr-canvas {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border: 5px solid #e63946;
+    border-radius: 10px;
+    background: #222;
+}
+
+.menu-section {
+    max-width: 600px;
+    margin: 40px auto;
+    display: none;
+}
+
+.menu-item {
+    background: #1f1f1f;
+    margin: 15px 0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu-item:hover {
+    background: #e63946;
+    color: #fff;
+}
+
+.menu-item h3 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.menu-item p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+@media (max-width: 640px) {
+    #qr-canvas {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #888;
+}
